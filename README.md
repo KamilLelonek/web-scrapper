@@ -57,3 +57,9 @@ which contains information about their clients. **We want to extract clients nam
 
 1. `cd microservice-printing-results`
 2. `./main.rb`
+
+### Crawling micro-service
+
+1. `cd ../microservice-web-scraper`
+2. `set` (that will fetch all **Scala** dependencies)
+3. `~ run` (inside `set` session, that will fetch all **Project** dependencies)
