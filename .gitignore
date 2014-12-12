@@ -1,0 +1,3 @@
+*.class
+microservice-web-scraper/project/target
+microservice-web-scraper/target
