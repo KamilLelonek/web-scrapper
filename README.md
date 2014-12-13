@@ -55,17 +55,17 @@ which contains information about their clients. **We want to extract clients nam
 
 ### Printing micro-service
 
-1. `cd microservice-printing-results`
+1. `cd microservice-printing-results/`
 2. `./main.rb`
 
 ### Crawling micro-service
 
-1. `cd ../microservice-web-scraper`
-2. `set` (that will fetch all **Scala** dependencies)
-3. `run` (inside `set` session, that will fetch all **Project** dependencies)
+1. `cd microservice-web-scraper/`
+2. `sbt` (that will fetch all **Scala** dependencies)
+3. `> run` (inside `sbt` session, that will fetch all **Project** dependencies)
 
 ## Results
 
 Gathered results should be dumped in:
 
-    microservice-printing-results/result.html
+    web-scrapper/result.html

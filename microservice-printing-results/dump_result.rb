@@ -2,7 +2,7 @@ require 'slim'
 require 'json'
 
 class DumpResult
-  FILE_NAME = 'result.html'
+  FILE_NAME = '../result.html'
 
   def call(content)
     dump_result parse_content(content)
