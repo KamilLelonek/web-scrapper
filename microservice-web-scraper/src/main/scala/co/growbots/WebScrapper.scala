@@ -21,6 +21,8 @@ object WebScrapper {
 }
 
 class WebScrapper {
+  private lazy val messagePublisher = new PublishMessage
+
   def start = scrape from GrowbotsWebsite.url open { implicit page => interpretPageContent }
 
   private def interpretPageContent(implicit page: WebPage) =
@@ -41,6 +43,6 @@ class WebScrapper {
 
   private def joinClientInfo(namesWithURL: Iterator[(String, String)], images: Iterator[String]) = {
     val jsonResult = BuildJson.fromCustomersAndImages(namesWithURL, images)
-    println(jsonResult)
+    messagePublisher.call(jsonResult)
   }
 }
