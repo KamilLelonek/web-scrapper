@@ -7,12 +7,14 @@ import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
 
 import co.growbots.WebScrapper._
+import co.growbots.ExtractDomainName
 
 import scala.collection.JavaConverters.asScalaIteratorConverter
 
 object WebScrapper {
-  val ClientsTagID = "#clients"
-  val UrlsTag      = "a[href]"
+  private lazy val ClientsTagID = "#clients"
+  private lazy val UrlsTag      = "a[href]"
+  private lazy val ImagesTag    = "img[src]"
 
   implicit def iteratorForElements(elements: Elements) = elements.iterator.asScala
 }
@@ -23,8 +25,20 @@ class WebScrapper {
   private def interpretPageContent(implicit page: WebPage) =
     ClientsTagID each { extractClients }
 
-  private def extractClients(htmlContent: Element) =
-    htmlContent select UrlsTag foreach { parseClientInfo }
+  private def extractClients(htmlContent: Element) = {
+    htmlContent select UrlsTag   foreach { parseUrlAndName }
+    htmlContent select ImagesTag foreach { parseImage }
+  }
 
-  private def parseClientInfo(client: Element) = println(client)
+  private def parseUrlAndName(client: Element) = {
+    val websiteURL = client.attr("abs:href")
+
+    println(websiteURL)
+    println(ExtractDomainName.fromStringURL(websiteURL))
+  }
+  private def parseImage(client: Element) = {
+    val logoURL    = client.attr("abs:src")
+
+    println(logoURL)
+  }
 }
