@@ -26,19 +26,22 @@ class WebScrapper {
     ClientsTagID each { extractClients }
 
   private def extractClients(htmlContent: Element) = {
-    htmlContent select UrlsTag   foreach { parseUrlAndName }
-    htmlContent select ImagesTag foreach { parseImage }
+    val listOfNamesWithURL = htmlContent select UrlsTag   map { parseUrlAndName }
+    val listOfImages       = htmlContent select ImagesTag map { parseImage }
+    joinClientInfo(listOfNamesWithURL, listOfImages)
   }
 
   private def parseUrlAndName(client: Element) = {
     val websiteURL = client.attr("abs:href")
-
-    println(websiteURL)
-    println(ExtractDomainName.fromStringURL(websiteURL))
+    (websiteURL, ExtractDomainName.fromStringURL(websiteURL))
   }
-  private def parseImage(client: Element) = {
-    val logoURL    = client.attr("abs:src")
 
-    println(logoURL)
+  private def parseImage(client: Element) = client.attr("abs:src")
+
+  private def joinClientInfo(namesWithURL: Iterator[(String, String)], images: Iterator[String]) = {
+    namesWithURL.zip(images).map {
+      case (nameWithURL, image) =>
+        Map("name" -> nameWithURL._1, "url" -> nameWithURL._2, "image" -> image)
+    }
   }
 }
