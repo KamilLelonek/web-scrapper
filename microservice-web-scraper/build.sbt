@@ -14,5 +14,6 @@ resolvers ++= Seq(
 libraryDependencies ++= Seq(
   "com.thenewmotion.akka" %% "akka-rabbitmq" % "1.2.3",
   "com.typesafe.akka" % "akka-actor_2.10" % "2.3.7",
-  "nl.razko" % "scraper_2.10" % "0.4.1"
+  "nl.razko" % "scraper_2.10" % "0.4.1",
+  "org.json4s" %% "json4s-jackson" % "3.2.10"
 )

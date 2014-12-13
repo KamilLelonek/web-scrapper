@@ -8,6 +8,7 @@ import org.jsoup.select.Elements
 
 import co.growbots.WebScrapper._
 import co.growbots.ExtractDomainName
+import co.growbots.BuildJson
 
 import scala.collection.JavaConverters.asScalaIteratorConverter
 
@@ -39,9 +40,7 @@ class WebScrapper {
   private def parseImage(client: Element) = client.attr("abs:src")
 
   private def joinClientInfo(namesWithURL: Iterator[(String, String)], images: Iterator[String]) = {
-    namesWithURL.zip(images).map {
-      case (nameWithURL, image) =>
-        Map("name" -> nameWithURL._1, "url" -> nameWithURL._2, "image" -> image)
-    }
+    val jsonResult = BuildJson.fromCustomersAndImages(namesWithURL, images)
+    println(jsonResult)
   }
 }
