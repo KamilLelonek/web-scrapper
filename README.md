@@ -43,8 +43,12 @@ which contains information about their clients. **We want to extract clients nam
 
 ## Prerequisites
 
-1. `git clone https://github.com/KamilLelonek/web-scrapper.git`
-2. `cd web-scrapper/`
+I assume that you have covered the following steps by yourself already:
+
+1. you have [Ruby](https://www.ruby-lang.org/en/documentation/installation/) installed
+2. you have [Scala](http://www.scala-lang.org/download/) and [SBT](http://www.scala-sbt.org/download.html) installed
+2. you have repository cloned `git clone https://github.com/KamilLelonek/web-scrapper.git`
+3. you are in project directory `cd web-scrapper/`
 
 ## Installation
 
