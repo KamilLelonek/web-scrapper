@@ -21,8 +21,7 @@ class WebScrapper {
 
   def start = scrape from GrowbotsWebsite.url open { implicit page => interpretPageContent }
 
-  private def interpretPageContent(implicit page: WebPage) =
-    ClientsTagID each { extractClients }
+  private def interpretPageContent(implicit page: WebPage) = ClientsTagID each { extractClients }
 
   private def extractClients(htmlContent: Element) = {
     val listOfNamesWithURL = htmlContent select UrlsTag   map { parseUrlAndName }
