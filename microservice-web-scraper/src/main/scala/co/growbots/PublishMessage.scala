@@ -1,8 +1,5 @@
 package co.growbots
 
-import akka.actor.{ ActorRef, Props, ActorSystem }
-import concurrent.Future
-import concurrent.ExecutionContext.Implicits.global
 import co.growbots.PublishMessage._
 import com.thenewmotion.akka.rabbitmq._
 

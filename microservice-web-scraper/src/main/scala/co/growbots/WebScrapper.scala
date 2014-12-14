@@ -1,14 +1,10 @@
 package co.growbots
 
-import org.rovak.scraper.ScrapeManager._
-import org.rovak.scraper.models.WebPage
-
+import co.growbots.WebScrapper._
 import org.jsoup.nodes.Element
 import org.jsoup.select.Elements
-
-import co.growbots.WebScrapper._
-import co.growbots.ExtractDomainName
-import co.growbots.BuildJson
+import org.rovak.scraper.ScrapeManager._
+import org.rovak.scraper.models.WebPage
 
 import scala.collection.JavaConverters.asScalaIteratorConverter
 

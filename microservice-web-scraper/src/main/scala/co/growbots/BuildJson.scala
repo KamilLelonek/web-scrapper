@@ -1,9 +1,7 @@
 package co.growbots
 
-import org.json4s._
-import org.json4s.jackson.JsonMethods._
 import org.json4s.JsonDSL._
-import scala.collection.JavaConverters._
+import org.json4s.jackson.JsonMethods._
 
 object BuildJson {
   def fromCustomersAndImages(namesWithURL: Iterator[(String, String)], images: Iterator[String]) = {
