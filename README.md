@@ -56,7 +56,7 @@ which contains information about their clients. **We want to extract clients nam
 ### Printing micro-service
 
 1. `cd microservice-printing-results/`
-2. `bundle install`
+2. `bundle install` (only for the first time)
 3. `./main.rb`
 
 ### Crawling micro-service
