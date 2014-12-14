@@ -12,7 +12,7 @@ The application consists of **two micro-services**.
 2. **Ruby printing library** - it is used to receive and print crawling results.
 
 
-We are interested particular code from that part of rowboats website:
+We are interested particular code from that part of Growbots website:
 
 ```
 <div class="row" style="margin-top:20px;">
